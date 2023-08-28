@@ -1,0 +1,21 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index",
+    "compile": "sass --watch scss:public/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.1",
+    "date-fns": "^2.30.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "sass": "^1.66.1"
+  }
+}

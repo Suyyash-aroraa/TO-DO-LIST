@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Hahmlet:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="container">
+    <div class="main">
+        <div class="menu open ">
+            <div class="open menu-heading p-3">
+                <div class="display-6">MENU</div>
+                <button><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <div class="menu--line mt-3"></div>
+            <div class="menu--tasks mt-3 p-3">
+                <p class="text-capitalize task-heading">TASKS</p>
+                <div class="menu-list btn">
+                    <i class="fa-solid fa-arrows-turn-right mr-3"></i>
+                    <p class="m-0">Upcoming</p>
+                </div>
+                <div class="menu-list btn">
+                    <i class="fa-solid fa-check mr-3"></i>
+                    <p class="m-0">Completed</p>
+                </div>
+            </div>
+            <div class="menu--line mt-3"></div>
+        </div>
+        <div class="main-body">
+            <h1 class="display-4 fw-bold"><%= date %></h1>
+            <button class="add-task-btn text-capitalize btn">+ &ThickSpace; Add new task</button>
+
+            <div class="all-tasks m-3">
+                
+                <% for (let i =0; i<allTasks.length; i++) {%>
+                    <div class="task-item mt-3" id="task-<%= i %>">
+                        <div class="left"><button><i class="fa-regular fa-square checkbox mr-3"></i></button></i>
+                            <h5><%= allTasks[i].title %></h5></div>
+                        <button class="right" id="task-<%= i %>-btn" data-id="<%= i %>"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="new-task p-3 active">
+            <div class="display-6 fw-500">Task:</div>
+            <form action="/add" method="post">
+                <input type="text" name="title" id="add-title" placeholder="Title" class="form-control mt-3">
+                <textarea type="input" name="description" id="add-description" placeholder="Description" rows="4" class="form-control mt-3"></textarea> 
+                <input type="submit" value="Save" class="btn add-new-task mt-3">
+            </form>
+            
+        </div>
+        
+    </div>
+    <div class="alltask" style="display: none;">
+        <% for (let i =0; i<allTasks.length; i++) {  %>
+            <div class="description<%=i%> description">
+            <%=allTasks[i].description%>
+            </div>
+            <% } %>
+    </div>
+
+    <div class="description-block"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/todo.js">
+        
+    </script>
+</body>
+</html>
