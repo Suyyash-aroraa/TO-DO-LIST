@@ -3,7 +3,7 @@ const app = express();
 import bodyParser from 'body-parser';
 import dateFns from 'date-fns';
 const PORT = process.env.PORT || 3000;
-var date = 'Date'
+var date = dateFns.format(new Date(), 'dd MMM yy')
 var allTasks = []
 
 app.use(bodyParser.urlencoded({extended: true}));
